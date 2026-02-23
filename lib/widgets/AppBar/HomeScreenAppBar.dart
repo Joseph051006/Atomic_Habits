@@ -8,7 +8,7 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.brown,
       title: Container(
-        child: Text("I am Atomic"),
+        child: Text("Atomic Habits - Dashboard"),
       )
     );
   }

@@ -1,3 +1,4 @@
+import 'package:atomic_habits/widgets/Body/HomeScreenDashboard.dart';
 import 'package:flutter/material.dart';
 import '../widgets/AppBar/HomeScreenAppBar.dart';
 class Homescreen extends StatelessWidget {
@@ -8,7 +9,16 @@ class Homescreen extends StatelessWidget {
     return const MaterialApp(
       home: Scaffold(
         appBar: HomeScreenAppBar(),
-        body: null,
+        body:  Center( child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Homescreendashboard(),
+            
+           
+
+          ],
+        )
+        ),
         bottomNavigationBar:null,
       ),
     );
