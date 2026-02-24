@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/AppBar/HomeScreenAppBar.dart';
 import '../widgets/BottomNavBar/HomeScreenNavBar.dart';
 import '../../core/globals.dart';
-import 'test.dart';
+import 'menu.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -15,8 +15,9 @@ class Homescreen extends StatefulWidget {
 class _HomescreenState extends State<Homescreen> {
   // 1. Define your pages in a list
   final List<Widget> _pages = [
-    MyWidget(),
+    
     Homescreendashboard(),
+    Menu(),
     Container( 
       decoration: BoxDecoration(image: DecorationImage(image: AssetImage('lib/core/assets/images/neutral.png'))),
       child: Text("Funktioniert super...")
