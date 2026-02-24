@@ -17,7 +17,10 @@ class _HomescreenState extends State<Homescreen> {
   final List<Widget> _pages = [
     MyWidget(),
     Homescreendashboard(),
-    Container( child: Text("Funktioniert super..."),)
+    Container( 
+      decoration: BoxDecoration(image: DecorationImage(image: AssetImage('lib/core/assets/images/neutral.png'))),
+      child: Text("Funktioniert super...")
+      )
     ];
 
   @override
@@ -25,7 +28,9 @@ class _HomescreenState extends State<Homescreen> {
     return MaterialApp(
     home: Scaffold(
      appBar: HomeScreenAppBar(),
-     body: _pages[currentPageIndex],
+     body: Center(
+      child: _pages[currentPageIndex]
+      ),
      bottomNavigationBar: Homescreennavbar(onDestinationSelected: (int index) {
        setState(() {
          currentPageIndex = index;
