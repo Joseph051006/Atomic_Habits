@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-
 class MenuDrawer extends StatefulWidget {
 final ValueChanged<int> onDestinationSelected; 
 final int selectedIndex;
@@ -15,20 +12,19 @@ final int selectedIndex;
 }
 
 class _MenuDrawerState extends State<MenuDrawer> {
+  
   late int _currentSelected;
+  
   @override
-  void initState() {// TODO: implement initState
+  void initState() {
     super.initState();
     _currentSelected = widget.selectedIndex;
   }
+  
   @override
-  
-  
-
   Widget build(BuildContext context) {
     return NavigationDrawer( 
-    selectedIndex:  _currentSelected,
-         
+    selectedIndex:  _currentSelected, 
     onDestinationSelected:(int index) {
       setState(() {
         _currentSelected = index;
