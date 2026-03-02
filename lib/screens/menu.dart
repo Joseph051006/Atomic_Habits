@@ -1,43 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Menu extends StatefulWidget {
-  const Menu({super.key});
+class MyWidget extends StatelessWidget {
 
-  @override
-  State<Menu> createState() => _MenuState();
-}
-
-class _MenuState extends State<Menu> {
-
-  final List<Widget> _pages = [
-  
-  ];
-
+  const MyWidget({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: Column(
-        children: [
-
-        ],
-      ),
+    return Container(
+      child: Text('HI ' )
     );
   }
-}
-
-Widget option(String title, String destanation){
-  return Container(
-    child: Text(title),
-  
-    );
-
-}
-
-
-
-Widget _toDestanation(String destanation){
-  return Container(
-    child: Text("d"),
-  );
 }

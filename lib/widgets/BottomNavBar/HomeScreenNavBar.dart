@@ -21,13 +21,11 @@ class _HomescreennavbarState extends State<Homescreennavbar> {
   Widget build(BuildContext context) {
     return NavigationBar(destinations: destination(),
     onDestinationSelected: widget.onDestinationSelected
-      
     );}
   }
 
 List<Widget> destination(){
 return [
-    NavigationDestination(icon: Icon(Icons.menu), label: 'menu'),
     NavigationDestination(icon: Icon(Icons.home), label: 'home'),
     NavigationDestination(icon: Icon(Icons.settings), label: 'settings')
     ];

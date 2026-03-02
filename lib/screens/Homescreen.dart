@@ -3,41 +3,50 @@ import 'package:flutter/material.dart';
 import '../widgets/AppBar/HomeScreenAppBar.dart';
 import '../widgets/BottomNavBar/HomeScreenNavBar.dart';
 import '../../core/globals.dart';
-import 'menu.dart';
-
+import '../widgets/Drawer/HomeScreenDrawer.dart';
+import '../screens/menu.dart';
 class Homescreen extends StatefulWidget {
-  const Homescreen({super.key});
-
+  const Homescreen({
+    super.key,
+   
+  
+  });
+ 
   @override
   State<Homescreen> createState() => _HomescreenState();
 }
-
+ 
 class _HomescreenState extends State<Homescreen> {
   // 1. Define your pages in a list
+  
+
+
   final List<Widget> _pages = [
-    
-    Homescreendashboard(),
-    Menu(),
-    Container( 
-      decoration: BoxDecoration(image: DecorationImage(image: AssetImage('lib/core/assets/images/neutral.png'))),
-      child: Text("Funktioniert super...")
-      )
+        Homescreendashboard(),
+        Container( child: Text("Funktioniert super...")),
+        Container(child: Text("Habit Tracker")),
+        Container(child: Text("Habit Stacker")),
+        Container(child: Text("Two Minutes"))
     ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-    home: Scaffold(
-     appBar: HomeScreenAppBar(),
-     body: Center(
-      child: _pages[currentPageIndex]
-      ),
-     bottomNavigationBar: Homescreennavbar(onDestinationSelected: (int index) {
-       setState(() {
-         currentPageIndex = index;
-       });
-     },),
-      )
-    );
+      home: Scaffold(
+      appBar: HomeScreenAppBar(),
+      body: _pages[currentPageIndex],
+      drawer: MenuDrawer(onDestinationSelected: (int index) {
+        setState(() {
+          currentPageIndex = index + 2;
+        });
+      }),
+      bottomNavigationBar: Homescreennavbar(
+      onDestinationSelected: (int index) {
+            setState(() {
+              currentPageIndex = index;
+            });
+          },
+        ),
+      ));
   }
 }
