@@ -24,9 +24,11 @@ class _HomescreenState extends State<Homescreen> {
   final List<Widget> _pages = [
         Homescreendashboard(),
         Container( child: Text("Funktioniert super...")),
-        Container(child: Text("Habit Tracker")),
+        HabitTracker(),
         Container(child: Text("Habit Stacker")),
-        Container(child: Text("Two Minutes"))
+        Container(child: Text("Two Minutes")),
+        Container(child: Text("1% a Day")),
+        Container(child: Text(""),)
     ];
 
   @override
