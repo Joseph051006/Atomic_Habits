@@ -39,8 +39,8 @@ class _HomescreenState extends State<Homescreen> {
         setState(() {
           currentPageIndex = index + 2;
         });
-      }),
-      bottomNavigationBar: Homescreennavbar(
+      }, selectedIndex: currentPageIndex),
+      bottomNavigationBar: Homescreennavbar( selectedIndex: currentPageIndex,
       onDestinationSelected: (int index) {
             setState(() {
               currentPageIndex = index;
