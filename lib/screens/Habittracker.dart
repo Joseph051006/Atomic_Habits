@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../core/globals.dart' as habit;
+import '../core/globals.dart';
+import '../widgets/TrackHabit.dart';
 
 class HabitTracker extends StatefulWidget {
 
@@ -20,27 +21,20 @@ class _HabitTrackerState extends State<HabitTracker> {
 
   void _addHabit(){
     setState(() {
-       habit.habits.add(
-        Card(
-          child: ListTile(
-            title: Text("Text")
-          )
-        )
+       habits.add(
+        Trackhabit()
       );
     });
-  }
-
+}
   @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: AlignmentGeometry.bottomCenter,
         children: [ 
           ListView.builder(
-            itemCount: habit.habits.length,
+            itemCount: habits.length,
             itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                title: Text("data"),
-              );
+              return Trackhabit();
               
             },
             
@@ -51,6 +45,7 @@ class _HabitTrackerState extends State<HabitTracker> {
         ]
     );
   }
+
+
+
 }
-
-
