@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../core/globals.dart';
 
 class Homescreennavbar extends StatefulWidget {
 

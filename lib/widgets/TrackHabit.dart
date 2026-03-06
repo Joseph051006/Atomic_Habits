@@ -1,14 +1,11 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-
 class Trackhabit extends StatefulWidget {
-  
   
   const Trackhabit({super.key});
 
   @override
   State<Trackhabit> createState() => _TrackhabitState();
+
 }
 
 class _TrackhabitState extends State<Trackhabit> {
@@ -41,8 +38,6 @@ class Habits {
       habit: input()
     };
   }
-  
-
 }
 
 Widget input(){
@@ -57,6 +52,8 @@ Widget input(){
         return null;
       } 
       return value;
-    }
+    }, onSaved: (newValue) {
+      print("Saved: $newValue");
+    },
   );
 }

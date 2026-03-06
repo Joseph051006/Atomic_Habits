@@ -1,7 +1,4 @@
-
-import 'package:flutter/material.dart';
-
+//Variablen
 int currentPageIndex = 0;
-
 List<Object> habits =[];
 
