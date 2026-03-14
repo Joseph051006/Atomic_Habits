@@ -39,7 +39,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
 List<Widget> destination(){
   return [
     NavigationDrawerDestination(icon: Icon(Icons.track_changes), label: Text("Habit Tracker"),
-    selectedIcon: Icon(Icons.track_changes_outlined), ),
+      selectedIcon: Icon(Icons.track_changes_outlined), ),
     NavigationDrawerDestination(icon: Icon(Icons.stacked_bar_chart), label: Text("Habit Stacker")),
     NavigationDrawerDestination(icon: Icon(Icons.timelapse), label: Text("2 Minutes"))
   ];

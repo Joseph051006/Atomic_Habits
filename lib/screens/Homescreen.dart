@@ -8,8 +8,6 @@ import 'Habittracker.dart';
 class Homescreen extends StatefulWidget {
   const Homescreen({
     super.key,
-   
-  
   });
  
   @override
@@ -17,9 +15,6 @@ class Homescreen extends StatefulWidget {
 }
  
 class _HomescreenState extends State<Homescreen> {
-  // 1. Define your pages in a list
-  final List<Widget> habits = [];
-
 
   final List<Widget> _pages = [
         Homescreendashboard(),
