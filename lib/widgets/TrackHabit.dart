@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import '../core/models/habits.dart';
+
 class Trackhabit extends StatefulWidget {
   
   const Trackhabit({super.key});
 
+
+  
+  
   @override
   State<Trackhabit> createState() => _TrackhabitState();
 
@@ -25,4 +30,28 @@ class _TrackhabitState extends State<Trackhabit> {
       isThreeLine: true,
     ));
   }
+}
+
+Habits createHabit(){
+  return Habits(
+    id: 0,
+    name: TextField(t),
+    description: description, 
+    icon: icon, 
+    color: color, 
+    frequency: frequency, 
+    targetValue: targetValue, 
+    unit: unit, 
+    dateCreated: dateCreated, 
+    history: history, 
+    reminderTime: reminderTime)
+  }
+
+Widget parseHabit(){
+
+
+
+}
+Widget createCrud(){
+  return null
 }
