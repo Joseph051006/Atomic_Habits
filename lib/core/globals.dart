@@ -1,4 +1,7 @@
+
+import '../core/models/habits.dart';
+
 //Variablen
 int currentPageIndex = 0;
-List<Object> habits =[];
+List<Habits> habits =[];
 
