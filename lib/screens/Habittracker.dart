@@ -2,7 +2,7 @@ import 'package:atomic_habits/core/models/habits.dart';
 import 'package:flutter/material.dart';
 import '../core/globals.dart';
 import '../widgets/AddHabitSheet.dart';
-
+import '../widgets/EditHabitSheet.dart';
 class HabitTracker extends StatefulWidget {
   const HabitTracker({super.key});
 
@@ -41,9 +41,10 @@ class _HabitTrackerState extends State<HabitTracker> {
                       itemBuilder: (context) => [
                         PopupMenuItem(child: Text("Edit"),
                         onTap: () {
-                          setState(() {
-                            
-                          });
+                          showModalBottomSheet(context: context, 
+                          builder: (context) => EditHabitSheet(habitID: index, onSave: (editHabit){
+                            setState(() => habits[index] = editHabit);
+                          }));
                         },
                         ),
                         PopupMenuItem(
