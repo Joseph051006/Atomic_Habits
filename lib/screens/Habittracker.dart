@@ -1,3 +1,4 @@
+import 'package:atomic_habits/core/models/habits.dart';
 import 'package:flutter/material.dart';
 import '../core/globals.dart';
 import '../widgets/AddHabitSheet.dart';
@@ -10,6 +11,7 @@ class HabitTracker extends StatefulWidget {
 }
 
 class _HabitTrackerState extends State<HabitTracker> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +25,10 @@ class _HabitTrackerState extends State<HabitTracker> {
               itemBuilder: (context, index) {
                 final habit = habits[index];
                 return Card(
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
                   color: habit.color,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -34,8 +39,21 @@ class _HabitTrackerState extends State<HabitTracker> {
                     subtitle: Text(habit.description),
                     trailing: PopupMenuButton(
                       itemBuilder: (context) => [
-                        const PopupMenuItem(child: Text("Edit")),
-                        const PopupMenuItem(child: Text("Delete")),
+                        PopupMenuItem(child: Text("Edit"),
+                        onTap: () {
+                          setState(() {
+                            
+                          });
+                        },
+                        ),
+                        PopupMenuItem(
+                          child: Text("Delete"),
+                          onTap: () {
+                            setState(() {
+                              habits.removeAt(index);
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
