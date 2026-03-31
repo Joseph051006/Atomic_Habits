@@ -1,7 +1,9 @@
 
 import 'dart:async';
 
+import 'package:atomic_habits/core/models/habits.dart';
 import 'package:flutter/material.dart';
+import '../core/globals.dart';
 
 class Twominutes extends StatefulWidget {
   const Twominutes({super.key});
@@ -12,8 +14,9 @@ class Twominutes extends StatefulWidget {
 
 class _TwominutesState extends State<Twominutes> {
   late Timer _timer;
-  int _elapsedTime = 0;
+  int _elapsedTime = 120;
   bool _isRunning = false;
+  Habits? _selectedHabit;
 
   @override
   void dispose() {
@@ -25,7 +28,11 @@ class _TwominutesState extends State<Twominutes> {
     if (!_isRunning){
       _timer = Timer.periodic(Duration(seconds: 1), (timer) =>
         setState(() {
-          _elapsedTime++;
+          _elapsedTime--;
+          if(_elapsedTime <= 0){
+            _stopTimer();
+          } 
+          
         })
       );
     }
@@ -44,7 +51,7 @@ class _TwominutesState extends State<Twominutes> {
   void _resetTimer(){
     _timer.cancel();
     setState(() {
-      _elapsedTime = 0;
+      _elapsedTime = 120;
       _isRunning = false;
     });
   }
@@ -55,21 +62,36 @@ class _TwominutesState extends State<Twominutes> {
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';    
   }
 
+  Widget _selectHabit(){
+    return 
+    DropdownButton(
+      value: _selectedHabit,
+    items: habits.map((f) => DropdownMenuItem(
+      value: f, child: Text(f.name))).toList(), 
+    onChanged: (v) => setState(() {
+      _selectedHabit = v;
+    })
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     
     return Column(
       children: [
         Center(
-          child: Text(_formatTime()),
+          child: Text(_formatTime(), style: TextStyle(fontSize: 100)),
         ),
+        _selectHabit(),
         SizedBox(),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ElevatedButton(onPressed: _startTimer, child: Text("Start")),
             ElevatedButton(onPressed: _stopTimer, child: Text("Stop")),
             ElevatedButton(onPressed: _resetTimer, child: Text("Reset"))
           ],
+
         ), 
       ],
     );
