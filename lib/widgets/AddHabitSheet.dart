@@ -18,8 +18,8 @@ class _AddHabitSheetState extends State<AddHabitSheet> {
   final targetValueController = TextEditingController();
   final unitController = TextEditingController();
 
-  Color selectedColor = Colors.blue;
-  Icon selectedIcon = const Icon(Icons.star);
+  Color selectedColor =  Color.fromARGB(255, 255, 0, 0);
+  Icon selectedIcon = Icon(Icons.star);
   String selectedFrequency = "Daily";
   TimeOfDay selectedTime = TimeOfDay.now();
   bool isActive = true;

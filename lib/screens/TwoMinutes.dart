@@ -31,6 +31,7 @@ class _TwominutesState extends State<Twominutes> {
           _elapsedTime--;
           if(_elapsedTime <= 0){
             _stopTimer();
+            _checked();
           } 
           
         })
@@ -61,6 +62,13 @@ class _TwominutesState extends State<Twominutes> {
     int seconds = _elapsedTime % 60;
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';    
   }
+
+  void _checked(){
+    _selectedHabit!.color = Colors.green;
+  
+  }
+
+
 
   Widget _selectHabit(){
     return 

@@ -6,7 +6,7 @@ class Habits {
   final String name;
   final String description;
   final Icon icon;
-  final Color color;
+  Color color;
   final String frequency;
   final int targetValue;
   final String unit;
