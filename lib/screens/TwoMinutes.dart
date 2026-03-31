@@ -14,7 +14,6 @@ class Twominutes extends StatefulWidget {
 
 class _TwominutesState extends State<Twominutes> {
   late Timer _timer;
-  int _elapsedTime = 120;
   bool _isRunning = false;
   Habits? _selectedHabit;
 
@@ -28,8 +27,8 @@ class _TwominutesState extends State<Twominutes> {
     if (!_isRunning){
       _timer = Timer.periodic(Duration(seconds: 1), (timer) =>
         setState(() {
-          _elapsedTime--;
-          if(_elapsedTime <= 0){
+          elapsedTime--;
+          if(elapsedTime <= 0){
             _stopTimer();
             _checked();
           } 
@@ -52,20 +51,19 @@ class _TwominutesState extends State<Twominutes> {
   void _resetTimer(){
     _timer.cancel();
     setState(() {
-      _elapsedTime = 120;
+      elapsedTime = 120;
       _isRunning = false;
     });
   }
 
   String _formatTime(){
-    int minutes = _elapsedTime ~/ 60;
-    int seconds = _elapsedTime % 60;
+    int minutes = elapsedTime ~/ 60;
+    int seconds = elapsedTime % 60;
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';    
   }
 
   void _checked(){
     _selectedHabit!.color = Colors.green;
-  
   }
 
 
