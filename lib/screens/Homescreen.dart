@@ -1,3 +1,4 @@
+import 'package:atomic_habits/screens/HabitStacker.dart';
 import 'package:atomic_habits/screens/TwoMinutes.dart';
 import 'package:atomic_habits/widgets/Body/HomeScreenDashboard.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class _HomescreenState extends State<Homescreen> {
     Homescreendashboard(),
     Container(child: Text("Funktioniert super...")),
     HabitTracker(),
-    Container(child: Text("Habit Stacker")),
+    Habitstacker(),
     Twominutes(),
     Container(child: Text("1% a Day")),
     Container(child: Text("")),
