@@ -1,5 +1,6 @@
 import 'package:atomic_habits/core/globals.dart';
 import 'package:atomic_habits/widgets/AddHabitStack.dart';
+import 'package:atomic_habits/widgets/EditHabitStack.dart';
 import 'package:flutter/material.dart';
 
 class Habitstacker extends StatefulWidget {
@@ -22,22 +23,33 @@ class _HabitstackerState extends State<Habitstacker> {
               title: Text(
                 "After ${stackHabit.currentHabit}, i will do ${stackHabit.stackedHabit.name}",
               ),
-              trailing: PopupMenuButton(itemBuilder: (context) => [
-                PopupMenuItem(child: Text("delete"),
-                onTap: () => setState(() {
-                  stackedHabits.removeAt(index);
-                }),
-                )
+              trailing: PopupMenuButton(
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: Text("Edit"),
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (context) => EditHabitStack(
+                          habitID: index,
+                          onSave: (editStack) {
+                            setState(() => stackedHabits[index] = editStack);
+                          },
+                        ),
+                      );
+                    },
+                  ),
 
-              ]
-                
-
-
-
-              )),
-            );
-            
-          
+                  PopupMenuItem(
+                    child: Text("Delete"),
+                    onTap: () => setState(() {
+                      stackedHabits.removeAt(index);
+                    }),
+                  ),
+                ],
+              ),
+            ),
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(

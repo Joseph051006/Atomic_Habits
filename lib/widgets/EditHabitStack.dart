@@ -5,17 +5,19 @@ import 'package:atomic_habits/core/models/stackedHabit.dart';
 
 import '../core/globals.dart';
 
-class AddHabitStack extends StatefulWidget {
+class EditHabitStack extends StatefulWidget {
   final Function(Stackedhabit) onSave;
-  const AddHabitStack({required this.onSave, super.key});
+  final int habitID;
+  const EditHabitStack({required this.habitID,required this.onSave, super.key});
 
   @override
-  State<AddHabitStack> createState() => _AddHabitStackState();
+  State<EditHabitStack> createState() => _EditHabitStackState();
 }
 
-class _AddHabitStackState extends State<AddHabitStack> {
+class _EditHabitStackState extends State<EditHabitStack> {
   late Habits _stackedHabit;
 
+  
   final _formKey = GlobalKey<FormState>();
   final currentController = TextEditingController();
 
@@ -37,7 +39,7 @@ class _AddHabitStackState extends State<AddHabitStack> {
 
   @override
   void initState() {
-    currentController.text = "Your current Habit";
+    currentController.text = stackedHabits[widget.habitID].currentHabit;
     super.initState();
   }
 
