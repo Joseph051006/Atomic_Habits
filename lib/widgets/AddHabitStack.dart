@@ -43,7 +43,14 @@ class _AddHabitStackState extends State<AddHabitStack> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
+    return Padding(
+      padding: EdgeInsets.only(
+        top: 16,
+        left: 16,
+        right: 16,
+        bottom: MediaQuery.of(context).viewInsets.bottom + 16
+      ), 
+      child: Form(
       key: _formKey,
       child: SingleChildScrollView(
         child: Column(
@@ -59,7 +66,11 @@ class _AddHabitStackState extends State<AddHabitStack> {
           ],
         ),
       ),
+    ) 
     );
+    
+    
+    
   }
 
   Widget currentSelector() {

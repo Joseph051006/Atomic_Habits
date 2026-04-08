@@ -20,7 +20,7 @@ class _HabitstackerState extends State<Habitstacker> {
           return Card(
             child: ListTile(
               title: Text(
-                "${stackHabit.currentHabit}"  + "${stackHabit.stackedHabit}",
+                "After ${stackHabit.currentHabit} , i will do ${stackHabit.stackedHabit.name}",
               ),
             ),
           );
