@@ -20,10 +20,24 @@ class _HabitstackerState extends State<Habitstacker> {
           return Card(
             child: ListTile(
               title: Text(
-                "After ${stackHabit.currentHabit} , i will do ${stackHabit.stackedHabit.name}",
+                "After ${stackHabit.currentHabit}, i will do ${stackHabit.stackedHabit.name}",
               ),
-            ),
-          );
+              trailing: PopupMenuButton(itemBuilder: (context) => [
+                PopupMenuItem(child: Text("delete"),
+                onTap: () => setState(() {
+                  stackedHabits.removeAt(index);
+                }),
+                )
+
+              ]
+                
+
+
+
+              )),
+            );
+            
+          
         },
       ),
       floatingActionButton: FloatingActionButton(
