@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:atomic_habits/core/models/habits.dart';
 import 'package:atomic_habits/core/models/stackedHabit.dart';
 
-import '../core/globals.dart';
+import '../../core/globals.dart';
 
 class EditHabitStack extends StatefulWidget {
   final Function(Stackedhabit) onSave;

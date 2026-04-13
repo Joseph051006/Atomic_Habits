@@ -1,7 +1,7 @@
 
 import 'package:atomic_habits/core/models/habits.dart';
 import 'package:flutter/material.dart';
-import '../core/globals.dart';
+import '../../core/globals.dart';
 
 class EditHabitSheet extends StatefulWidget {
   

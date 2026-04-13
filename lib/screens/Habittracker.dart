@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../core/globals.dart';
-import '../widgets/AddHabitSheet.dart';
-import '../widgets/EditHabitSheet.dart';
+import '../widgets/forms/AddHabitSheet.dart';
+import '../widgets/forms/EditHabitSheet.dart';
 
 class HabitTracker extends StatefulWidget {
   const HabitTracker({super.key});

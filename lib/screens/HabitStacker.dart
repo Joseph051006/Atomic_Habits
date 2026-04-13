@@ -1,6 +1,6 @@
 import 'package:atomic_habits/core/globals.dart';
-import 'package:atomic_habits/widgets/AddHabitStack.dart';
-import 'package:atomic_habits/widgets/EditHabitStack.dart';
+import 'package:atomic_habits/widgets/forms/AddHabitStack.dart';
+import 'package:atomic_habits/widgets/forms/EditHabitStack.dart';
 import 'package:flutter/material.dart';
 
 class Habitstacker extends StatefulWidget {
