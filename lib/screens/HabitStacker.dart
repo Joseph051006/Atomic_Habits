@@ -11,6 +11,9 @@ class Habitstacker extends StatefulWidget {
 }
 
 class _HabitstackerState extends State<Habitstacker> {
+  //TODO : REFACTOR
+  //Refactor the entire code into multiple Widgets and functions
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

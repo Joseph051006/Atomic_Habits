@@ -11,6 +11,8 @@ class HabitTracker extends StatefulWidget {
 }
 
 class _HabitTrackerState extends State<HabitTracker> {
+  //TODO : REFACTOR
+  //Refactor entire code in multiple widgets and functions
   @override
   Widget build(BuildContext context) {
     return Scaffold(

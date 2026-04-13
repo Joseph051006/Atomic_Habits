@@ -43,6 +43,9 @@ class _EditHabitStackState extends State<EditHabitStack> {
     super.initState();
   }
 
+  //TODO: Refactor
+  //Refactor entire code into multiple Widgets and functions
+
   @override
   Widget build(BuildContext context) {
     return Padding(

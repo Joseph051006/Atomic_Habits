@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:atomic_habits/core/models/habits.dart';
 import 'package:atomic_habits/core/models/stackedHabit.dart';
@@ -18,6 +17,12 @@ class _AddHabitStackState extends State<AddHabitStack> {
 
   final _formKey = GlobalKey<FormState>();
   final currentController = TextEditingController();
+
+  List<DropdownMenuItem<Habits>> _allHabits() {
+    return habits
+        .map((f) => DropdownMenuItem(value: f, child: Text(f.name)))
+        .toList();
+  }
 
   void _dispose() {
     currentController.dispose();
@@ -48,39 +53,41 @@ class _AddHabitStackState extends State<AddHabitStack> {
         top: 16,
         left: 16,
         right: 16,
-        bottom: MediaQuery.of(context).viewInsets.bottom + 16
-      ), 
+        bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+      ),
       child: Form(
-      key: _formKey,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            TextFormField(
-              controller: currentController,
-              decoration: const InputDecoration(label: Text("Current Habit")),
-              validator: (value) => value!.isEmpty ? "required" : null,
-            ),
-            currentSelector(),
-            ElevatedButton(onPressed: _submit, 
-            child: const Text("Save Stack"))
-          ],
+        key: _formKey,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              _currentHabit(currentController),
+              _currentSelector(),
+              _stackSave(),
+            ],
+          ),
         ),
-      ),  
-    ) 
+      ),
     );
-    
-    
-    
   }
 
-  Widget currentSelector() {
+  Widget _currentSelector() {
     return DropdownButtonFormField<Habits>(
-      items: habits
-          .map((f) => DropdownMenuItem(value: f, child: Text(f.name)))
-          .toList(),
+      items: _allHabits(),
       onChanged: (v) => setState(() {
         _stackedHabit = v!;
       }),
     );
+  }
+
+  Widget _currentHabit(TextEditingController currentController) {
+    return TextFormField(
+      controller: currentController,
+      decoration: const InputDecoration(label: Text("Current Habit")),
+      validator: (value) => value!.isEmpty ? "required" : null,
+    );
+  }
+
+  Widget _stackSave() {
+    return ElevatedButton(onPressed: _submit, child: const Text("Save Stack"));
   }
 }

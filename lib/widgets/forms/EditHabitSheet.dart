@@ -77,7 +77,8 @@ void initState() {
   return TimeOfDay(hour: int.parse(parts[0]), minute: int.parse(parts[1]));
 }
   
-
+  //TODO : Refactor
+  //Refactor the entire code into multiple Widgets and functions
   @override
   Widget build(BuildContext context) {
     return Padding(
