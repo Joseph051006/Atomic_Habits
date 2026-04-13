@@ -51,6 +51,7 @@ class _AddHabitSheetState extends State<AddHabitSheet> {
       );
       widget.onSave(habit);
       Navigator.pop(context);
+      _dispose();
     }
   }
 

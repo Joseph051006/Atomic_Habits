@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../core/globals.dart';
 import '../widgets/AddHabitSheet.dart';
 import '../widgets/EditHabitSheet.dart';
+
 class HabitTracker extends StatefulWidget {
   const HabitTracker({super.key});
 
@@ -10,7 +11,6 @@ class HabitTracker extends StatefulWidget {
 }
 
 class _HabitTrackerState extends State<HabitTracker> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,13 +38,19 @@ class _HabitTrackerState extends State<HabitTracker> {
                     subtitle: Text(habit.description),
                     trailing: PopupMenuButton(
                       itemBuilder: (context) => [
-                        PopupMenuItem(child: Text("Edit"),
-                        onTap: () {
-                          showModalBottomSheet(context: context, 
-                          builder: (context) => EditHabitSheet(habitID: index, onSave: (editHabit){
-                            setState(() => habits[index] = editHabit);
-                          }));
-                        },
+                        PopupMenuItem(
+                          child: Text("Edit"),
+                          onTap: () {
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (context) => EditHabitSheet(
+                                habitID: index,
+                                onSave: (editHabit) {
+                                  setState(() => habits[index] = editHabit);
+                                },
+                              ),
+                            );
+                          },
                         ),
                         PopupMenuItem(
                           child: Text("Delete"),
