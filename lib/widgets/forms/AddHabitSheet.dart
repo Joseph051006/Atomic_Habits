@@ -77,28 +77,11 @@ class _AddHabitSheetState extends State<AddHabitSheet> {
         top: 16,
         bottom: MediaQuery.of(context).viewInsets.bottom + 16,
       ),
-      child: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _habitName(nameController),
-              _habitDescription(descriptionController),
-              _habitFrequency(selectedFrequency),
-              _habitTargetValue(targetValueController),
-              _habitUnit(unitController),
-              _habitSelectedTime(selectedTime),
-              _habitIsActive(isActive),
-              _habitSave(),
-            ],
-          ),
-        ),
-      ),
+      child: _habitForm(),
     );
   }
 
-  Widget _habitName(TextEditingController nameController) {
+  Widget _habitName() {
     return TextFormField(
       controller: nameController,
       decoration: const InputDecoration(label: Text("Habit")),
@@ -106,7 +89,7 @@ class _AddHabitSheetState extends State<AddHabitSheet> {
     );
   }
 
-  Widget _habitDescription(TextEditingController descriptionController) {
+  Widget _habitDescription() {
     return TextFormField(
       controller: descriptionController,
       decoration: InputDecoration(label: Text("Habit Description")),
@@ -114,7 +97,7 @@ class _AddHabitSheetState extends State<AddHabitSheet> {
     );
   }
 
-  Widget _habitTargetValue(TextEditingController targetValueController) {
+  Widget _habitTargetValue() {
     return TextFormField(
       controller: targetValueController,
       decoration: const InputDecoration(labelText: "Target Value"),
@@ -123,14 +106,14 @@ class _AddHabitSheetState extends State<AddHabitSheet> {
     );
   }
 
-  Widget _habitUnit(TextEditingController unitController) {
+  Widget _habitUnit() {
     return TextFormField(
       controller: unitController,
       decoration: const InputDecoration(labelText: "Unit (e.g. km, glasses)"),
     );
   }
 
-  Widget _habitFrequency(String selectedFrequency) {
+  Widget _habitFrequency() {
     return DropdownButtonFormField<String>(
       initialValue: selectedFrequency,
       items: _habitFrequencyItems(),
@@ -141,7 +124,7 @@ class _AddHabitSheetState extends State<AddHabitSheet> {
     );
   }
 
-  Widget _habitSelectedTime(TimeOfDay selectedTime) {
+  Widget _habitSelectedTime() {
     return ListTile(
       title: Text("Reminder: ${selectedTime.format(context)}"),
       trailing: const Icon(Icons.access_time),
@@ -149,7 +132,7 @@ class _AddHabitSheetState extends State<AddHabitSheet> {
     );
   }
 
-  Widget _habitIsActive(bool isActive) {
+  Widget _habitIsActive() {
     return SwitchListTile(
       title: const Text("Active"),
       value: isActive,
@@ -159,5 +142,26 @@ class _AddHabitSheetState extends State<AddHabitSheet> {
 
   Widget _habitSave() {
     return ElevatedButton(onPressed: _submit, child: const Text("Save Habit"));
+  }
+
+  Widget _habitForm() {
+    return Form(
+      key: _formKey,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _habitName(),
+            _habitDescription(),
+            _habitFrequency(),
+            _habitTargetValue(),
+            _habitUnit(),
+            _habitSelectedTime(),
+            _habitIsActive(),
+            _habitSave(),
+          ],
+        ),
+      ),
+    );
   }
 }

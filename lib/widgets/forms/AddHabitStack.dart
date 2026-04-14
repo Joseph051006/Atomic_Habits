@@ -55,18 +55,7 @@ class _AddHabitStackState extends State<AddHabitStack> {
         right: 16,
         bottom: MediaQuery.of(context).viewInsets.bottom + 16,
       ),
-      child: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              _currentHabit(currentController),
-              _currentSelector(),
-              _stackSave(),
-            ],
-          ),
-        ),
-      ),
+      child: _habitForm()
     );
   }
 
@@ -79,7 +68,7 @@ class _AddHabitStackState extends State<AddHabitStack> {
     );
   }
 
-  Widget _currentHabit(TextEditingController currentController) {
+  Widget _currentHabit() {
     return TextFormField(
       controller: currentController,
       decoration: const InputDecoration(label: Text("Current Habit")),
@@ -89,5 +78,20 @@ class _AddHabitStackState extends State<AddHabitStack> {
 
   Widget _stackSave() {
     return ElevatedButton(onPressed: _submit, child: const Text("Save Stack"));
+  }
+  
+  Widget _habitForm(){
+    return Form(
+      key: _formKey,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            _currentHabit(),
+            _currentSelector(),
+            _stackSave(),
+          ],
+        ),
+      ),
+    );
   }
 }
