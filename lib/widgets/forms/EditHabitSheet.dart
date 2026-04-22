@@ -91,9 +91,7 @@ class _EditHabitSheetState extends State<EditHabitSheet> {
     );
     if (t != null) setState(() => selectedTime = t);
   }
-
-  //TODO : Refactor
-  //Refactor the entire code into multiple Widgets and functions
+  
   @override
   Widget build(BuildContext context) {
     return Padding(

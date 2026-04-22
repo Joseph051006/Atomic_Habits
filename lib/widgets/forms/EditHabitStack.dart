@@ -51,9 +51,6 @@ class _EditHabitStackState extends State<EditHabitStack> {
         .toList();
   }
 
-  //TODO: Refactor
-  //Refactor entire code into multiple Widgets and functions
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -63,7 +60,7 @@ class _EditHabitStackState extends State<EditHabitStack> {
         right: 16,
         bottom: MediaQuery.of(context).viewInsets.bottom + 16,
       ),
-      child: _stackForm()
+      child: _stackForm(),
     );
   }
 
@@ -88,14 +85,14 @@ class _EditHabitStackState extends State<EditHabitStack> {
     );
   }
 
-  Widget _stackForm(){
+  Widget _stackForm() {
     return Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [_stackCurrent(), currentSelector(), _stackSave()],
-          ),
+      key: _formKey,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [_stackCurrent(), currentSelector(), _stackSave()],
         ),
-      );
+      ),
+    );
   }
 }
