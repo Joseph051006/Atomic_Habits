@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "286900658951",
+    "project_id": "atomic-habits-b14d6",
+    "storage_bucket": "atomic-habits-b14d6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286900658951:android:41b8b826a72c0811861ba2",
+        "android_client_info": {
+          "package_name": "com.example.atomic_habits"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs2EDjKooxV8QQzNCkhcYrAZijJEVS9gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

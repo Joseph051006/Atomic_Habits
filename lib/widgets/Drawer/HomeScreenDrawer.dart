@@ -17,11 +17,12 @@ class _MenuDrawerState extends State<MenuDrawer> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); 
     _currentSelected = widget.selectedIndex;
   }
 
-  @override
+
+@override
   Widget build(BuildContext context) {
     return NavigationDrawer(
       selectedIndex: _currentSelected,
@@ -51,5 +52,9 @@ List<Widget> destination() {
       icon: Icon(Icons.timelapse),
       label: Text("2 Minutes"),
     ),
+    NavigationDrawerDestination(
+      icon: Icon(Icons.notes), 
+      label: Text("QuickNotes")
+    )
   ];
 }
